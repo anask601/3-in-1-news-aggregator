@@ -3,7 +3,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { Button, Form, FormControl, Navbar } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { navbarBrand } from "../../utils/util";
-import logoImage from "../Images/logoImage.png";
+import logoImage from "../Images/logoImage.jpg";
 import "./NavBar.css";
 
 function NavBar() {
@@ -19,6 +19,7 @@ function NavBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    navigate(`/search/${searchQuery}`);
     setSearchQuery("");
     setIsCollapsed(true);
   };
