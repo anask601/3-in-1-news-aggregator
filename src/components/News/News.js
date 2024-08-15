@@ -69,13 +69,12 @@ function News({ newscategory = "general", country = "us" }) {
             <Row className="mb-4">
               <Col sm={4}>
                 <Form.Group controlId="sourceSelect">
-                  <Form.Label>Select Source</Form.Label>
+                  <Form.Label className="fieldLabel">Select Source</Form.Label>
                   <Form.Control
                     as="select"
                     value={selectedSource}
                     onChange={(e) => setSelectedSource(e.target.value)}
                   >
-                    {/* <option value="">All Sources</option> */}
                     <option value="newsapi">NewsAPI</option>
                     <option value="guardianapis">The Guardian</option>
                     <option value="nyt">The New York Times</option>
@@ -84,14 +83,15 @@ function News({ newscategory = "general", country = "us" }) {
               </Col>
               <Col sm={4}>
                 <Form.Group controlId="categorySelect">
-                  <Form.Label>Select Category</Form.Label>
+                  <Form.Label className="fieldLabel">
+                    Select a Category
+                  </Form.Label>
                   <Form.Control
                     as="select"
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
                     disabled={!availableCategories.length}
                   >
-                    <option value="">Select a category</option>
                     {availableCategories.map((category) => (
                       <option key={category} value={category}>
                         {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -102,7 +102,7 @@ function News({ newscategory = "general", country = "us" }) {
               </Col>
               <Col sm={4}>
                 <Form.Group controlId="dateSelectFrom">
-                  <Form.Label>From Date</Form.Label>
+                  <Form.Label className="fieldLabel">From Date</Form.Label>
                   <Form.Control
                     type="date"
                     value={fromDate}
@@ -112,7 +112,7 @@ function News({ newscategory = "general", country = "us" }) {
               </Col>
               <Col sm={4}>
                 <Form.Group controlId="dateSelectTo">
-                  <Form.Label>To Date</Form.Label>
+                  <Form.Label className="fieldLabel">To Date</Form.Label>
                   <Form.Control
                     type="date"
                     value={toDate}
