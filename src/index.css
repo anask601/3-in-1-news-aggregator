@@ -29,3 +29,10 @@ body {
     margin-top: 40%;
   }
 }
+
+.no-results-message {
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 20px;
+}

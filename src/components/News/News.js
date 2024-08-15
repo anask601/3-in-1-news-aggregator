@@ -132,22 +132,28 @@ function News({ newscategory = "general", country = "us" }) {
             </Row>
 
             <Row>
-              {articles.map((element) => (
-                <Col sm={12} md={6} lg={4} xl={3} key={uuidv4()}>
-                  <NewsItem
-                    title={element.title}
-                    description={element.description}
-                    published={element.publishedAt}
-                    channel={element.source}
-                    alt="News image"
-                    publishedAt={element.publishedAt}
-                    imageUrl={
-                      element.imageUrl === null ? NullImage : element.imageUrl
-                    }
-                    urlNews={element.url}
-                  />
+              {articles.length > 0 ? (
+                articles.map((element) => (
+                  <Col sm={12} md={6} lg={4} xl={3} key={uuidv4()}>
+                    <NewsItem
+                      title={element.title}
+                      description={element.description}
+                      published={element.publishedAt}
+                      channel={element.source}
+                      alt="News image"
+                      publishedAt={element.publishedAt}
+                      imageUrl={
+                        element.imageUrl === null ? NullImage : element.imageUrl
+                      }
+                      urlNews={element.url}
+                    />
+                  </Col>
+                ))
+              ) : (
+                <Col>
+                  <p className="no-results-message">No results found</p>
                 </Col>
-              ))}
+              )}
             </Row>
           </div>
         </>
