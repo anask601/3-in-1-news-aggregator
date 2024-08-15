@@ -143,7 +143,7 @@ function News({ newscategory = "general", country = "us" }) {
                       alt="News image"
                       publishedAt={element.publishedAt}
                       imageUrl={
-                        element.imageUrl === null ? NullImage : element.imageUrl
+                        !element.imageUrl ? NullImage : element.imageUrl
                       }
                       urlNews={element.url}
                     />
