@@ -5,7 +5,7 @@ import NewsItem from "../NewsItem/NewsItem";
 import { v4 as uuidv4 } from "uuid";
 import { Col, Row, Form } from "react-bootstrap";
 import { header } from "../../utils/util";
-import buildEndpointPath from "../../services/searchApi";
+import buildEndpointPath from "../../services/buildEndpointPath";
 import fetchArticles from "../../services/fetchArticles";
 import categoriesBySource from "../../config/sourceFilters";
 import "./news.style.css";
