@@ -56,7 +56,7 @@ function Search() {
             <Row className="mb-4">
               <Col sm={4}>
                 <Form.Group controlId="sourceSelect">
-                  <Form.Label>Select Source</Form.Label>
+                  <Form.Label className="fieldLabel">Select Source</Form.Label>
                   <Form.Control
                     as="select"
                     value={selectedSource}
