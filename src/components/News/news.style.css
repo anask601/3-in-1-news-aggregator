@@ -1,6 +1,5 @@
 .header {
     text-align: center;
-    margin-top: 10%;
     color: #fff;
     margin-bottom: 20px;
 }
@@ -13,8 +12,8 @@
 
 .container {
     width: 90%;
-    padding-right: 1.5rem;
-    padding-left: 0.75rem;
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
     margin-right: auto;
     margin-left: auto;
 }
@@ -22,8 +21,4 @@
 .card {
     margin-top: 10px;
     margin-bottom: 50px;
-}
-
-.fieldLabel {
-    color: white;
 }

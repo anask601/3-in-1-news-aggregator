@@ -13,3 +13,19 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: #464b50;
 }
+
+.fieldLabel {
+  color: white;
+}
+
+.header {
+  margin-top: 10%;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-top: 40%;
+  }
+}
