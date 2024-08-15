@@ -9,6 +9,8 @@ import buildEndpointPath from "../../services/buildEndpointPath";
 import fetchArticles from "../../services/fetchArticles";
 import categoriesBySource from "../../config/sourceFilters";
 import "./news.style.css";
+import dateFieldConfig from "../../config/dateFieldConfig";
+
 function News({ newscategory = "general", country = "us" }) {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,7 +40,7 @@ function News({ newscategory = "general", country = "us" }) {
           category: selectedCategory,
           date: fromDate,
           fromDate,
-          toDate,
+          toDate: dateFieldConfig[selectedSource].showToDate ? toDate : "",
         });
         const response = await fetchArticles(url, selectedSource);
         const parsedData = response;
@@ -56,6 +58,9 @@ function News({ newscategory = "general", country = "us" }) {
   useEffect(() => {
     setAvailableCategories(categoriesBySource[selectedSource] || []);
     setSelectedCategory("");
+    if (!dateFieldConfig[selectedSource].showToDate) {
+      setToDate("");
+    }
   }, [selectedSource]);
 
   return (
@@ -100,26 +105,30 @@ function News({ newscategory = "general", country = "us" }) {
                   </Form.Control>
                 </Form.Group>
               </Col>
-              <Col sm={4}>
-                <Form.Group controlId="dateSelectFrom">
-                  <Form.Label className="fieldLabel">From Date</Form.Label>
-                  <Form.Control
-                    type="date"
-                    value={fromDate}
-                    onChange={(e) => setFromDate(e.target.value)}
-                  />
-                </Form.Group>
-              </Col>
-              <Col sm={4}>
-                <Form.Group controlId="dateSelectTo">
-                  <Form.Label className="fieldLabel">To Date</Form.Label>
-                  <Form.Control
-                    type="date"
-                    value={toDate}
-                    onChange={(e) => setToDate(e.target.value)}
-                  />
-                </Form.Group>
-              </Col>
+              {dateFieldConfig[selectedSource].showFromDate && (
+                <Col sm={4}>
+                  <Form.Group controlId="dateSelectFrom">
+                    <Form.Label className="fieldLabel">From Date</Form.Label>
+                    <Form.Control
+                      type="date"
+                      value={fromDate}
+                      onChange={(e) => setFromDate(e.target.value)}
+                    />
+                  </Form.Group>
+                </Col>
+              )}
+              {dateFieldConfig[selectedSource].showToDate && (
+                <Col sm={4}>
+                  <Form.Group controlId="dateSelectTo">
+                    <Form.Label className="fieldLabel">To Date</Form.Label>
+                    <Form.Control
+                      type="date"
+                      value={toDate}
+                      onChange={(e) => setToDate(e.target.value)}
+                    />
+                  </Form.Group>
+                </Col>
+              )}
             </Row>
 
             <Row>
