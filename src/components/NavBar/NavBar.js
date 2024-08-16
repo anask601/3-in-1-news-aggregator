@@ -33,7 +33,7 @@ function NavBar() {
         className="navbar"
         variant="dark"
         expand="lg"
-        fixed="top"
+        sticky="top"
         expanded={!isCollapsed}
       >
         <Navbar.Brand className="nav-brand" href="/">
